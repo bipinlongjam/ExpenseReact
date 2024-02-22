@@ -3,22 +3,44 @@ import './ExpenseForm.css';
 
 const ExpenseForm = () =>{
 
-    const [enteredTitle, setEnterTitle] = useState('');
-    const [enterAmount, setEnterAmount] = useState('');
-    const [enterDate, setEnterDate] = useState('');
-    const [enterLocation, setEnterLocation] = useState('');
+    // const [enteredTitle, setEnterTitle] = useState('');
+    // const [enterAmount, setEnterAmount] = useState('');
+    // const [enterDate, setEnterDate] = useState('');
+    // const [enterLocation, setEnterLocation] = useState('');
 
+    const [userInput, setUserInput] = useState({
+        enteredTitle:"",
+        enterAmount:"",
+        enterDate:"",
+        enterLocation:"",
+    })
     const titleChangeHandler =(event)=>{
-        setEnterTitle(event.target.value)
+       // setEnterTitle(event.target.value)
+        setUserInput({
+            ...userInput,
+            enteredTitle:event.target.value,
+        })
     }
     const amountChangeHandler =(event)=>{
-        setEnterAmount(event.target.value)
+       // setEnterAmount(event.target.value)
+       setUserInput({
+        ...userInput,
+        enterAmount:event.target.value,
+    })
     }
     const dateChangeHandler =(event)=>{
-        setEnterDate(event.target.value)
+       // setEnterDate(event.target.value)
+       setUserInput({
+        ...userInput,
+        enterDate:event.target.value,
+    })
     }
     const locationChangeHandler =(event)=>{
-        setEnterLocation(event.target.value)
+       // setEnterLocation(event.target.value)
+       setUserInput({
+        ...userInput,
+        enterLocation:event.target.value,
+    })
     }
 
     return(
