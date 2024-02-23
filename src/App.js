@@ -12,9 +12,13 @@ const App = () => {
       {id:4, title:"Movie", amount: 150, date:new Date(2023, 3, 8), location:"Mumbai"}
     ]
 
+    const addExpenseHandler = expense =>{
+      console.log('In app.js')
+      console.log(expense)
+    }
   return (
-    <Card className="App">
-      <NewExpense/>
+    <Card className="app">
+      <NewExpense onAddExpense={addExpenseHandler}/>
        <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} location={expenses[0].location}/>
        <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date} location={expenses[1].location}/>
        <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date} location={expenses[2].location}/>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () =>{
+const ExpenseForm = (props) =>{
 
     const [enteredTitle, setEnterTitle] = useState('');
     const [enterAmount, setEnterAmount] = useState('');
@@ -54,7 +54,11 @@ const ExpenseForm = () =>{
             date: new Date(enterDate),
             location: enterLocation
         }
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData)
+        setEnterTitle('');
+        setEnterAmount('');
+        setEnterDate('');
+        setEnterLocation('');
     }
 
     return(
@@ -62,19 +66,19 @@ const ExpenseForm = () =>{
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type="text" onChange={titleChangeHandler}/>
+                    <input type="text" value ={enteredTitle} onChange={titleChangeHandler}/>
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
-                    <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+                    <input type="number" min="0.01" step="0.01"  value ={enterAmount} onChange={amountChangeHandler}/>
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type="date" min="2019-01-01" max="2024-12-31" onChange={dateChangeHandler}/>
+                    <input type="date" min="2019-01-01" max="2024-12-31" value={enterDate} onChange={dateChangeHandler}/>
                 </div>
                 <div className='new-expense__control'>
                     <label>Location</label>
-                    <input type="text" onChange={locationChangeHandler}/>
+                    <input type="text" value={enterLocation} onChange={locationChangeHandler}/>
                 </div>
             </div>
             <div className='new-expense__actions'>
