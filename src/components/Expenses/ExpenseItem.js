@@ -13,6 +13,7 @@ const ExpenseItem = (props)=>{
         setExpenseAmount(100); // Change the expense amount to $100
       };
     return isVisible ?(
+        <li>
         <Card className="expense-item">
             <ExpenseDate date={props.date}/>
             <div className='expense-item__description'>
@@ -23,6 +24,8 @@ const ExpenseItem = (props)=>{
             <button onClick={clickHandler}>Delete</button>
             <button onClick={handleAmountChange}>Change Amount</button>
         </Card>
+        </li>
     ): null
+    
 }
 export default ExpenseItem;
